@@ -1,3 +1,8 @@
+<p align="center">
+<img src=https://github.com/dh4rm4/A-Reasonably-Secure-Thinkpad/blob/master/a_resonably_secure_thinkpad.png?raw=trueD />
+</p>
+
+
 # A-Reasonably-Secure-Thinkpad
 How to build a reasonably secure t480s Thinkpad
 
