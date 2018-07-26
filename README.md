@@ -7,13 +7,13 @@ How to build a reasonably secure t480s Thinkpad
 * :x:: Disable
 * :o: : Permanently Disable
 ### Security
-* :x: [Device Guard](https://docs.microsoft.com/en-us/windows/security/threat-protection/device-guard/introduction-to-device-guard-virtualization-based-security-and-windows-defender-application-control):  Windows Only 
+:x: [Device Guard](https://docs.microsoft.com/en-us/windows/security/threat-protection/device-guard/introduction-to-device-guard-virtualization-based-security-and-windows-defender-application-control):  Windows Only 
 <details>
   <summary>Details</summary>
 Device Guard restricts devices to only run authorized apps [...], while simultaneously hardening the OS against kernel memory attacks [...]
 </details>
 
-* [Intel® SGX](https://software.intel.com/en-us/blogs/2013/09/26/protecting-application-secrets-with-intel-sgx)
+:heavy_check_mark: [Intel® SGX](https://software.intel.com/en-us/blogs/2013/09/26/protecting-application-secrets-with-intel-sgx)
 
 
 ## Why Qubes ?
