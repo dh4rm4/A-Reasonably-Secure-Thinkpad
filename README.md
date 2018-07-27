@@ -26,6 +26,7 @@ How to build a reasonably secure t480s Thinkpad
 [Virutalization](https://github.com/dh4rm4/A-Reasonably-Secure-Thinkpad/blob/master/src/img/virtualization.png?raw=true) | [Intel VT-x]() :eight_spoked_asterisk: | :heavy_check_mark: | |
 [Fingerprint](https://github.com/dh4rm4/A-Reasonably-Secure-Thinkpad/blob/master/src/img/fingerprint.png?raw=true) | [Predesktop Authentification]() | :x: | Windows Only | | [:spades:](https://www.avg.com/en/signal/3-reasons-to-never-use-fingerprint-locks) [:spades:](https://blog.elcomsoft.com/2012/08/upek-fingerprint-readers-a-huge-security-hole/)
 [Security Chip](https://github.com/dh4rm4/A-Reasonably-Secure-Thinkpad/blob/master/src/img/scurity_chip.png?raw=true) | [Security Chip](https://trustedcomputinggroup.org/resource/trusted-platform-module-tpm-summary/) | :heavy_check_mark: | Necessary for Trusted Computing | Ensure that the boot process starts from a trusted combination of hardware and software, and continues until the operating system has fully booted and applications are running. | [:spades:](http://www.jhuapl.edu/techdigest/TD/td3202/32_02-Osborn.pdf) [:spades:](https://lenovopress.com/lp0599-technical-introduction-tpm-20-with-linux)  [:spades:](https://link.springer.com/chapter/10.1007/978-1-4302-6584-9_3) [:spades:](https://link.springer.com/book/10.1007/978-1-4302-6584-9)
+[Memory Protection](https://github.com/dh4rm4/A-Reasonably-Secure-Thinkpad/blob/master/src/img/memory_protection.png?raw=true) | [Execution Prevention](https://www.wikiwand.com/en/NX_bit) |  
             
 
 
