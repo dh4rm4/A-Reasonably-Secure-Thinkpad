@@ -58,7 +58,7 @@ Dom0: isolate from network
 ## Content
 * [Qubes GPG Master Key]()
 * [Qubes GPG Release Key]()
-* [Qubes ISO]
+* [Qubes ISO]()
 
 **Bellow is a short version of the already [superb documentation](https://www.qubes-os.org/security/verifying-signatures/) from QUbes Offical Website:**.
 If you want to understand a specific output, you could probably find the infos on he official doc.
@@ -188,5 +188,19 @@ sha256sum: WARNING: 23 lines are improperly formatted
 $ sha512sum -c Qubes-RX-x86_64.iso.DIGESTS
 Qubes-RX-x86_64.iso: OK
 sha512sum: WARNING: 23 lines are improperly formatted
+```
+
+## Burn Qubes on Usb Device
+### Clean Usb device
+To fully erase the device content, _dd_ will do the job.
+_Be sure to replace **sdX** by your usb device_
+```
+dd if=/dev/zero of=/dev/sdX bs=1048576
+dd if=/dev/urandom of=/dev/sdX bs=1048576
+```
+
+### Copy file from Iso to Usb Drive
+```
+dd if=Qubes-R4-x86_64.iso of=/dev/sdX bs=1048576 && sync
 ```
 
