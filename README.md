@@ -40,3 +40,40 @@ Dom0: isolate from network
 ### Cons:
 1. Hardware Compatibility
 2. Necessary RAM
+
+
+# Install Qubes
+### Get ISO
+```
+wget https://mirrors.edge.kernel.org/qubes/iso/Qubes-R4.0-x86_64.iso
+```
+### Get ISO Digest
+```
+wget https://mirrors.edge.kernel.org/qubes/iso/Qubes-R4.0-x86_64.iso.DIGESTS
+```
+### Get ISO Signature
+```
+https://mirrors.edge.kernel.org/qubes/iso/Qubes-R4.0-x86_64.iso.asc
+```
+### Get Qubes PGO Key
+```
+wget https://keys.qubes-os.org/keys/qubes-release-4-signing-key.asc
+```
+
+## Qubes GPG Master Key
+### Get Master Key
+```
+gpg --fetch-keys https://keys.qubes-os.org/keys/qubes-master-signing-key.asc
+```
+### Verify Master Key Fingerprint
+It is necessary to check with multiple source that the fingerprint you obtain is similar to the one everyone get.
+```
+gpg --fingerprint qubes
+pub   4096R/36879494 2010-04-01
+      Key fingerprint = 427F 11FD 0FAA 4B08 0123  F01C DDFA 1A3E 3687 9494
+uid   Qubes Master Signing Key
+```
+List bellow are way *I* use to verify the fingerprint. You may add others sources.
+
+[Qubes Website](https://www.qubes-os.org/security/verifying-signatures/) | [Twitter](https://twitter.com/rootkovska/status/496976187491876864) | [Github](https://github.com/QubesOS/qubes-secpack/blob/master/canaries/canary-001-2015.txt/) | [WikiData](https://www.wikidata.org/wiki/Q7269652) | [Wikipedia]() | [Reddit](https://www.reddit.com/r/Qubes/comments/5sgmtg/on_verifying_signatures/)
+|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|
