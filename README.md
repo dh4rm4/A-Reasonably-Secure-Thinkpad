@@ -9,8 +9,10 @@ How to build a reasonably secure t480s Thinkpad
 
 ## Bios Settings:
 * :heavy_check_mark: : Enable
-* :x:: Disable
+* :x: : Disable
 * :o: : Permanently Disable
+* :eight_spoked_asterisk: : Needed for Qubes
+
 ### Security
 **Category** |  **Field**       | **Action**           | **Reason**   | **Infos**   | Reading
 :-----------:|:----------------:|:--------------------:|:------------:|:-----------:|:---:
@@ -20,8 +22,10 @@ How to build a reasonably secure t480s Thinkpad
 [Secure Boot](https://github.com/dh4rm4/A-Reasonably-Secure-Thinkpad/blob/master/src/img/secure_boot.png?raw=true) | [Secure Boot](https://docs.microsoft.com/en-us/windows-hardware/design/device-experiences/oem-secure-boot)       | :x:                  | [UEFI](https://www.wikiwand.com/en/Unified_Extensible_Firmware_Interface) only / Incompatible with [TrustGrub2](https://github.com/Rohde-Schwarz-Cybersecurity/TrustedGRUB2) | | [:spades:](https://www.howtogeek.com/116569/htg-explains-how-windows-8s-secure-boot-feature-works-what-it-means-for-linux/)
 [Internal Device Access](https://github.com/dh4rm4/A-Reasonably-Secure-Thinkpad/blob/master/src/img/internal_device_access.png?raw=true) | Bottom Cover Tamper Detection | :heavy_check_mark: | Adds light physical security | Supervisor password is required when a bottom cover tamperis detected. This option is not functional until a supervisor password is set |
 [Internal Device Access](https://github.com/dh4rm4/A-Reasonably-Secure-Thinkpad/blob/master/src/img/internal_device_access.png?raw=true) | Internal Storage Tamper Detection | :heavy_check_mark: | Adds light physical security |  If you remove the internal storage device while the computer is in sleepmode, the computer will shut down when you wake it up, and any unsaved data will be lost |
-[Virutalization](https://github.com/dh4rm4/A-Reasonably-Secure-Thinkpad/blob/master/src/img/virtualization.png?raw=true) |[Intel VT-d](https://www.intel.com/content/www/us/en/virtualization/virtualization-technology/intel-virtualization-technology.html?iid=tech_vt+tech) | :heavy_check_mark: | Bring more security and isolation for virtualization i/o | The overall concept behind VT-d is hardware support for isolating and restricting device accesses to the owner of the partition managing the device. | [:spades:](https://software.intel.com/en-us/blogs/2009/06/25/understanding-vt-d-intel-virtualization-technology-for-directed-io)[:spades:](https://software.intel.com/en-us/articles/intel-virtualization-technology-for-directed-io-vt-d-enhancing-intel-platforms-for-efficient-virtualization-of-io-devices)
-[Virutalization](https://github.com/dh4rm4/A-Reasonably-Secure-Thinkpad/blob/master/src/img/virtualization.png?raw=true) | [Intel VT-x]() | :heavy_check_mark: | |
+[Virutalization](https://github.com/dh4rm4/A-Reasonably-Secure-Thinkpad/blob/master/src/img/virtualization.png?raw=true) |[Intel VT-d](https://www.intel.com/content/www/us/en/virtualization/virtualization-technology/intel-virtualization-technology.html?iid=tech_vt+tech) :eight_spoked_asterisk: | :heavy_check_mark: | Bring more security and isolation for virtualization i/o | The overall concept behind VT-d is hardware support for isolating and restricting device accesses to the owner of the partition managing the device. | [:spades:](https://software.intel.com/en-us/blogs/2009/06/25/understanding-vt-d-intel-virtualization-technology-for-directed-io) [:spades:](https://software.intel.com/en-us/articles/intel-virtualization-technology-for-directed-io-vt-d-enhancing-intel-platforms-for-efficient-virtualization-of-io-devices)
+[Virutalization](https://github.com/dh4rm4/A-Reasonably-Secure-Thinkpad/blob/master/src/img/virtualization.png?raw=true) | [Intel VT-x]() :eight_spoked_asterisk: | :heavy_check_mark: | |
+[Fingerprint](https://github.com/dh4rm4/A-Reasonably-Secure-Thinkpad/blob/master/src/img/fingerprint.png?raw=true) | [Predesktop Authentification]() | :x: | Windows Only
+[Security Chip](https://github.com/dh4rm4/A-Reasonably-Secure-Thinkpad/blob/master/src/img/scurity_chip.png?raw=true) | [Security Chip](https://trustedcomputinggroup.org/resource/trusted-platform-module-tpm-summary/) | :heavy_check_mark: | Necessary for Trusted Computing | The primary scope of TPM is to assure the integrity of a platform. It is to ensure that the boot process starts from a trusted combination of hardware and software, and continues until the operating system has fully booted and applications are running. | [:spades:](http://www.jhuapl.edu/techdigest/TD/td3202/32_02-Osborn.pdf) [:spades:](https://lenovopress.com/lp0599-technical-introduction-tpm-20-with-linux)  [:spades:](https://link.springer.com/chapter/10.1007/978-1-4302-6584-9_3) [:spades:](https://link.springer.com/book/10.1007/978-1-4302-6584-9)
             
 
 
