@@ -14,12 +14,16 @@ How to build a reasonably secure t480s Thinkpad.
 * [Qubes Config]()
 
 ## Bios Settings
+<center>
+  
    **Symbol**           |  **Meaning**
 :-----------------------|:-----------:
 :heavy_check_mark:      | Enable
 :x:                     | Disable
 :o:                     | Permanently Disable
 :eight_spoked_asterisk: | Needed for Qubes
+
+</center>
 
 ### Security
 **Category** |  **Field**       | **Action**           | **Reason**   | **Infos**   | **Reading**
