@@ -7,8 +7,8 @@
 How to build a reasonably secure t480s Thinkpad.
 
 ## Contents
-* [Bios Settings]()
-* [Install Qubes]()
+* [Bios Settings](https://github.com/dh4rm4/A-Reasonably-Secure-Thinkpad/blob/master/README.md#bios-settings)
+* [Install Qubes](https://github.com/dh4rm4/A-Reasonably-Secure-Thinkpad/blob/master/README.md#install-qubes)
 * [Setup TPM]()
 * [Disk Encryption]()
 * [Qubes Config]()
@@ -56,9 +56,10 @@ Dom0: isolate from network
 
 # Install Qubes
 ## Content
-* [Qubes GPG Master Key]()
-* [Qubes GPG Release Key]()
-* [Qubes ISO]()
+* [Qubes GPG Master Key](https://github.com/dh4rm4/A-Reasonably-Secure-Thinkpad/blob/master/README.md#qubes-gpg-master-key)
+* [Qubes GPG Release Key](https://github.com/dh4rm4/A-Reasonably-Secure-Thinkpad/blob/master/README.md#get-the-release-key)
+* [Qubes ISO](https://github.com/dh4rm4/A-Reasonably-Secure-Thinkpad/blob/master/README.md#qubes-iso)
+* [Burn Qubes on Usb Device](https://github.com/dh4rm4/A-Reasonably-Secure-Thinkpad/blob/master/README.md#burn-qubes-on-usb-device)
 
 **Bellow is a short version of the already [superb documentation](https://www.qubes-os.org/security/verifying-signatures/) from QUbes Offical Website:**.
 If you want to understand a specific output, you could probably find the infos on he official doc.
