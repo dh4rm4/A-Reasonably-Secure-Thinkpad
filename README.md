@@ -47,18 +47,6 @@ Dom0: isolate from network
 ```
 wget https://mirrors.edge.kernel.org/qubes/iso/Qubes-R4.0-x86_64.iso
 ```
-### Get ISO Digest
-```
-wget https://mirrors.edge.kernel.org/qubes/iso/Qubes-R4.0-x86_64.iso.DIGESTS
-```
-### Get ISO Signature
-```
-https://mirrors.edge.kernel.org/qubes/iso/Qubes-R4.0-x86_64.iso.asc
-```
-### Get Qubes PGO Key
-```
-wget https://keys.qubes-os.org/keys/qubes-release-4-signing-key.asc
-```
 
 ## Qubes GPG Master Key
 ### Get Master Key
@@ -66,7 +54,7 @@ wget https://keys.qubes-os.org/keys/qubes-release-4-signing-key.asc
 gpg --fetch-keys https://keys.qubes-os.org/keys/qubes-master-signing-key.asc
 ```
 ### Verify Master Key Fingerprint
-It is necessary to check with multiple source that the fingerprint you obtain is similar to the one everyone get.
+It is necessary to check with multiple sources that you obtained good the fingerprint.
 ```
 gpg --fingerprint qubes
 pub   4096R/36879494 2010-04-01
@@ -75,5 +63,67 @@ uid   Qubes Master Signing Key
 ```
 List bellow are way *I* use to verify the fingerprint. You may add others sources.
 
-[Qubes Website](https://www.qubes-os.org/security/verifying-signatures/) | [Twitter](https://twitter.com/rootkovska/status/496976187491876864) | [Github](https://github.com/QubesOS/qubes-secpack/blob/master/canaries/canary-001-2015.txt/) | [WikiData](https://www.wikidata.org/wiki/Q7269652) | [Wikipedia]() | [Reddit](https://www.reddit.com/r/Qubes/comments/5sgmtg/on_verifying_signatures/)
+[Qubes Website](https://www.qubes-os.org/security/verifying-signatures/) | [Twitter](https://twitter.com/rootkovska/status/496976187491876864) | [Github](https://github.com/QubesOS/qubes-secpack/blob/master/canaries/canary-001-2015.txt/) | [WikiData](https://www.wikidata.org/wiki/Q7269652) | [Wikipedia]() | [Reddit](https://www.reddit.com/r/Qubes/comments/5sgmtg/on_verifying_signatures/) | [Qubes Keys Server](https://keys.qubes-os.org/keys/)
 |:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|
+
+
+**+When you finally decide to trust the Master key you got, you can say to GPG to _ultimately_ trust this key+**
+
+```
+$ gpg --edit-key 0x36879494
+gpg (GnuPG) 1.4.18; Copyright (C) 2014 Free Software Foundation, Inc.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+
+pub  4096R/36879494  created: 2010-04-01  expires: never       usage: SC
+                     trust: unknown       validity: unknown
+[ unknown] (1). Qubes Master Signing Key
+
+gpg> fpr
+pub   4096R/36879494 2010-04-01 Qubes Master Signing Key
+ Primary key fingerprint: 427F 11FD 0FAA 4B08 0123  F01C DDFA 1A3E 3687 9494
+
+gpg> trust
+pub  4096R/36879494  created: 2010-04-01  expires: never       usage: SC
+                     trust: unknown       validity: unknown
+[ unknown] (1). Qubes Master Signing Key
+
+Please decide how far you trust this user to correctly verify other users' keys
+(by looking at passports, checking fingerprints from different sources, etc.)
+
+  1 = I don't know or won't say
+  2 = I do NOT trust
+  3 = I trust marginally
+  4 = I trust fully
+  5 = I trust ultimately
+  m = back to the main menu
+
+Your decision? 5
+Do you really want to set this key to ultimate trust? (y/N) y
+
+pub  4096R/36879494  created: 2010-04-01  expires: never       usage: SC
+                     trust: ultimate      validity: unknown
+[ unknown] (1). Qubes Master Signing Key
+Please note that the shown key validity is not necessarily correct
+unless you restart the program.
+
+gpg> q
+```
+
+### Get the release Key
+```
+$ wget https://keys.qubes-os.org/keys/qubes-release-X-signing-key.asc
+$ gpg --import ./qubes-release-X-signing-key.asc
+```
+
+Check if the release key is signed by the master key
+```
+$ gpg --list-sigs "Qubes OS Release X Signing Key"
+pub   rsa4096 2017-03-06 [SC]
+      5817A43B283DE5A9181A522E1848792F9E2795E9
+uid           [  full  ] Qubes OS Release X Signing Key
+sig 3        1848792F9E2795E9 2017-03-06  Qubes OS Release X Signing Key
+sig          DDFA1A3E36879494 2017-03-08  Qubes Master Signing Key
+```
+
