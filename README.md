@@ -14,7 +14,7 @@ How to build a reasonably secure t480s Thinkpad
 * :eight_spoked_asterisk: : Needed for Qubes
 
 ### Security
-**Category** |  **Field**       | **Action**           | **Reason**   | **Infos**   | Reading
+**Category** |  **Field**       | **Action**           | **Reason**   | **Infos**   | **Reading**
 :-----------:|:----------------:|:--------------------:|:------------:|:-----------:|:---:
 [Device Guard](https://github.com/dh4rm4/A-Reasonably-Secure-Thinkpad/blob/master/src/img/device_guard.png?raw=true) | [Device Guard](https://docs.microsoft.com/en-us/windows/security/threat-protection/device-guard/introduction-to-device-guard-virtualization-based-security-and-windows-defender-application-control)     | :x:                  | Windows Only | Device Guard restricts devices to only run authorized apps, while simultaneously hardening the OS against kernel memory attacks [...] | [:spades:](https://blogs.technet.microsoft.com/ash/2016/03/02/windows-10-device-guard-and-credential-guard-demystified/)
 [Intel SGX](https://github.com/dh4rm4/A-Reasonably-Secure-Thinkpad/blob/master/src/img/intel_sgx.png?raw=true) | [Intel SGX](https://software.intel.com/en-us/blogs/2013/09/26/protecting-application-secrets-with-intel-sgx)         | :heavy_check_mark:   | Good security for apps builded around SGX | Creates an isolated memory enclave, fills it with the app code, and if the enclave' hash is validated, then the app is launched | [:spades:](https://software.intel.com/en-us/blogs/2013/09/26/protecting-application-secrets-with-intel-sgx) [:spades:](http://theinvisiblethings.blogspot.com/2013/08/thoughts-on-intels-upcoming-software.html)
@@ -43,6 +43,7 @@ Dom0: isolate from network
 
 
 # Install Qubes
+**Bellow is a short version of the already [superb documentation](https://www.qubes-os.org/security/verifying-signatures/) from QUbes Offical Website:**
 ### Get ISO
 ```
 wget https://mirrors.edge.kernel.org/qubes/iso/Qubes-R4.0-x86_64.iso
@@ -63,8 +64,8 @@ uid   Qubes Master Signing Key
 ```
 List bellow are way *I* use to verify the fingerprint. You may add others sources.
 
-[Qubes Website](https://www.qubes-os.org/security/verifying-signatures/) | [Twitter](https://twitter.com/rootkovska/status/496976187491876864) | [Github](https://github.com/QubesOS/qubes-secpack/blob/master/canaries/canary-001-2015.txt/) | [WikiData](https://www.wikidata.org/wiki/Q7269652) | [Wikipedia]() | [Reddit](https://www.reddit.com/r/Qubes/comments/5sgmtg/on_verifying_signatures/) | [Qubes Keys Server](https://keys.qubes-os.org/keys/)
-|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|
+[Qubes Website](https://www.qubes-os.org/security/verifying-signatures/) | [Twitter](https://twitter.com/rootkovska/status/496976187491876864) | [Github](https://github.com/QubesOS/qubes-secpack/blob/master/canaries/canary-001-2015.txt/) | [WikiData](https://www.wikidata.org/wiki/Q7269652) | [Wikipedia]() | [Reddit](https://www.reddit.com/r/Qubes/comments/5sgmtg/on_verifying_signatures/) | [Qubes Keys Server](https://keys.qubes-os.org/keys/) |
+:-------:|:-------:|:-------:|:-------:|:-------:|:-------:
 
 
 **+When you finally decide to trust the Master key you got, you can say to GPG to _ultimately_ trust this key+**
@@ -96,7 +97,7 @@ Please decide how far you trust this user to correctly verify other users' keys
   2 = I do NOT trust
   3 = I trust marginally
   4 = I trust fully
-  5 = I trust ultimately
+  5 = I trust ultimatelyh
   m = back to the main menu
 
 Your decision? 5
@@ -125,5 +126,15 @@ pub   rsa4096 2017-03-06 [SC]
 uid           [  full  ] Qubes OS Release X Signing Key
 sig 3        1848792F9E2795E9 2017-03-06  Qubes OS Release X Signing Key
 sig          DDFA1A3E36879494 2017-03-08  Qubes Master Signing Key
+```
+
+### Check ISO Authenticity
+```
+$ gpg -v --verify Qubes-RX-x86_64.iso.asc Qubes-RX-x86_64.iso
+gpg: armor header: Version: GnuPG v1
+gpg: Signature made Tue 08 Mar 2016 07:40:56 PM PST using RSA key ID 03FA5082
+gpg: using PGP trust model
+gpg: Good signature from "Qubes OS Release X Signing Key"
+gpg: binary signature, digest algorithm SHA256
 ```
 
