@@ -206,3 +206,9 @@ dd if=/dev/urandom of=/dev/sdX bs=1048576
 dd if=Qubes-R4-x86_64.iso of=/dev/sdX bs=1048576 && sync
 ```
 
+# After Completed Installation
+### Update qubes from dom0
+```
+sudo qubes-dom0-update
+```
+
