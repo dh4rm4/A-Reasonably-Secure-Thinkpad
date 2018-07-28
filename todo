@@ -1,0 +1,6 @@
+1. Manage Trackpoint sensitivity
+2. Have a look to https://medium.com/@securitystreak/living-with-qubes-os-r3-2-rc3-for-a-week-1a37e04c799e
+3. Set up su + sudo policy
+4. backup VMs conf file to just import my conf
+5. Write Script to automate AppVM software
+6. Setup TPM
