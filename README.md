@@ -212,3 +212,12 @@ dd if=Qubes-R4-x86_64.iso of=/dev/sdX bs=1048576 && sync
 sudo qubes-dom0-update
 ```
 
+### Fix _Suspend Functionnality_
+There is an issue with the usb controler from Lenovo and Qubes.
+Simply said, you can't have usb 2.0 and 3.0 working side by side on your sys-usb VM.
+
+You'll have to disable one of the Devices below on _sys_usb: Qubes Settings >> _Devices_
+```
+3c:00.0 USB Controller: Intel Corporation Device 15c1 (rev 01)
+00.14.0 USB Controller: Intel Corporation Sunrise Point-LP USB 3.0 xHCI Controller (rev 21)
+```
