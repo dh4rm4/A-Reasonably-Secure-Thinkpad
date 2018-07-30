@@ -248,7 +248,8 @@ qubes-dom0-update tlp tlp-rdw
 ```
 
 ## Scripts
-Here are some useful script to automate and optimize tasks
+Here are some useful scripts to automate and optimize tasks
+
 **Shutdown Thinkpad**
 ```
 #!/bin/sh
