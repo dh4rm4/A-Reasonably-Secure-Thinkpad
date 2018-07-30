@@ -6,6 +6,31 @@
 # A Reasonably Secure Thinkpad
 How to build a reasonably secure t480s Thinkpad.
 
+# Considerations
+One major componenent to build a resonably secure laptop, is the use of the _Static Root of Trust for Measurements_ from your _Trusted Platform Module_. 
+
+But if you encrypted disk, this functionnality comes with high risks:
+
+If one hash in your PCRs tables changes, you will never be able to recover your data. (_This could be an easy way to disrupt your hard work_)
+
+Before you start playing with some important stuff, you must consider differents solution for your data sotrage:
+* version control system
+* backup on personnal physical device
+* cloud storage provider (with dual encryption)
+* ...
+
+## Why Qubes ?
+### Pros:
+1. Free and open-source software
+2. Xen
+3. Security by compartmentalization
+Dom0: isolate from network
+
+### Cons:
+1. Hardware Compatibility
+2. Necessary RAM
+
+
 ## Contents
 * [Bios Settings](https://github.com/dh4rm4/A-Reasonably-Secure-Thinkpad/blob/master/README.md#bios-settings)
 * [Install Qubes](https://github.com/dh4rm4/A-Reasonably-Secure-Thinkpad/blob/master/README.md#install-qubes)
@@ -40,18 +65,6 @@ How to build a reasonably secure t480s Thinkpad.
 [Security Chip](https://github.com/dh4rm4/A-Reasonably-Secure-Thinkpad/blob/master/src/img/scurity_chip.png?raw=true) | [Security Chip](https://trustedcomputinggroup.org/resource/trusted-platform-module-tpm-summary/) | :heavy_check_mark: | Necessary for Trusted Computing | Ensure that the boot process starts from a trusted combination of hardware and software, and continues until the operating system has fully booted and applications are running. | [:spades:](http://www.jhuapl.edu/techdigest/TD/td3202/32_02-Osborn.pdf) [:spades:](https://lenovopress.com/lp0599-technical-introduction-tpm-20-with-linux)  [:spades:](https://link.springer.com/chapter/10.1007/978-1-4302-6584-9_3) [:spades:](https://link.springer.com/book/10.1007/978-1-4302-6584-9)
 [Memory Protection](https://github.com/dh4rm4/A-Reasonably-Secure-Thinkpad/blob/master/src/img/memory_protection.png?raw=true) | [Execution Prevention](https://www.wikiwand.com/en/NX_bit) |  
             
-
-
-## Why Qubes ?
-### Pros:
-1. Free and open-source software
-2. Xen
-3. Security by compartmentalization
-Dom0: isolate from network
-
-### Cons:
-1. Hardware Compatibility
-2. Necessary RAM
 
 
 # Install Qubes
