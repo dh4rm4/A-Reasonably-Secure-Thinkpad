@@ -227,10 +227,49 @@ sudo qubes-dom0-update
 
 ### Fix _Suspend Functionnality_
 There is an issue with the usb controler from Lenovo and Qubes.
-Simply said, you can't have usb 2.0 and 3.0 working side by side on your sys-usb VM.
-
-You'll have to disable one of the Devices below on _sys_usb: Qubes Settings >> _Devices_
+You'll have to disable _USB3.0_ in \_sys_usb: Qubes Settings >> _Devices_
 ```
-3c:00.0 USB Controller: Intel Corporation Device 15c1 (rev 01)
 00.14.0 USB Controller: Intel Corporation Sunrise Point-LP USB 3.0 xHCI Controller (rev 21)
+```
+
+### SetUp power saving
+Install in TemplattesVM + dom0 TLP to automaticcaly save power
+**Template Fedora**
+```
+sudo dnf install tlp tlp-rdw
+```
+**Template Debian**
+```
+sudo apt-get install tlp tlp-rdw
+```
+**dom0**
+```
+qubes-dom0-update tlp tlp-rdw
+```
+
+## Scripts
+Here are some useful script to automate and optimize tasks
+**Shutdown Thinkpad**
+```
+#!/bin/sh
+
+user_vm=$(qvm-ls -q --all --exclude sys-net --exclude sys-firewall | grep Running | cut -d' ' -f1
+
+echo '[+] Shutdown user VM(s)'
+qvm-shutdown $user_vm 2>&-
+sleep 10
+qvm-ls -q --all --exclude sys-net --exclude sys-firewall | grep Running && qvm-kill $user_vm
+
+echo '[+] Shutdown sys-firewall'
+qvm-shutdown sys-firewall
+sleep 8
+qvm-ls | grep -E 'sys-firewall.*Running' && qvm-kill sys-firewall
+
+echo '[+] Shutdown sys-net'
+qvm-shutdown sys-net
+sleep 8
+qvm-ls | grep -E 'sys-net.*Running' && qvm-kill sys-net
+
+echo '[+] Shutdown Thinkpad'
+shutdown now
 ```
