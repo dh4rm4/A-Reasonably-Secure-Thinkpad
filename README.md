@@ -247,6 +247,13 @@ sudo apt-get install tlp tlp-rdw
 qubes-dom0-update tlp tlp-rdw
 ```
 
+If you want to be more power efficient, you can tune your config files thaks to the [documentation](https://linrunner.de/en/tlp/docs/tlp-configuration.html).
+One settings worses chaging is the _TLP_DEFAULT_MODE_, which set what config to use in case a power source cannot be detected.
+```
+TLP_DEFAULT_MODE=BAT
+```
+
+
 ## Scripts
 Here are some useful scripts to automate and optimize tasks
 
