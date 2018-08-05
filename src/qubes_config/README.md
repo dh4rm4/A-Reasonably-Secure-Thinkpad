@@ -37,19 +37,13 @@ Here are some useful scripts to automate and optimize tasks
 user_vm=$(qvm-ls -q --all --exclude sys-net --exclude sys-firewall | grep Running | cut -d' ' -f1
 
 echo '[+] Shutdown user VM(s)'
-qvm-shutdown $user_vm 2>&-
-sleep 10
-qvm-ls -q --all --exclude sys-net --exclude sys-firewall | grep Running && qvm-kill $user_vm
+qvm-shutdown $user_vm --timeout 10
 
 echo '[+] Shutdown sys-firewall'
-qvm-shutdown sys-firewall
-sleep 8
-qvm-ls | grep -E 'sys-firewall.*Running' && qvm-kill sys-firewall
+qvm-shutdown sys-firewall --timeout 8
 
 echo '[+] Shutdown sys-net'
-qvm-shutdown sys-net
-sleep 8
-qvm-ls | grep -E 'sys-net.*Running' && qvm-kill sys-net
+qvm-shutdown sys-net --timeout 8
 
 echo '[+] Shutdown Thinkpad'
 shutdown now
