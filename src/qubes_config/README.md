@@ -34,7 +34,7 @@ Here are some useful scripts to automate and optimize tasks
 ```
 #!/bin/sh
 
-user_vm=$(qvm-ls -q --all --exclude sys-net --exclude sys-firewall | grep Running | cut -d' ' -f1
+user_vm=$(qvm-ls -q --all --exclude sys-net --exclude sys-firewall | grep -E 'Running|Paused' | cut -d' ' -f1
 
 echo '[+] Shutdown user VM(s)'
 qvm-shutdown $user_vm --timeout 10
