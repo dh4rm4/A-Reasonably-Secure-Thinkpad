@@ -38,12 +38,15 @@ user_vm=$(qvm-ls -q --all --exclude sys-net --exclude sys-firewall | grep -E 'Ru
 
 echo '[+] Shutdown user VM(s)'
 qvm-shutdown $user_vm --timeout 10
+sleep 10
 
 echo '[+] Shutdown sys-firewall'
 qvm-shutdown sys-firewall --timeout 8
+sleep 8
 
 echo '[+] Shutdown sys-net'
 qvm-shutdown sys-net --timeout 8
+sleep 8
 
 echo '[+] Shutdown Thinkpad'
 shutdown now
