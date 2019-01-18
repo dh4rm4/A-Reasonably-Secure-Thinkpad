@@ -7,7 +7,7 @@
 How to build a reasonably secure t480s Thinkpad.
 
 # Considerations
-One major componenent to build a resonably secure laptop, is the use of the _Static Root of Trust for Measurements_ from your _Trusted Platform Module_. 
+One major component to build a reasonably secure laptop, is the use of the _Static Root of Trust for Measurements_ from your _Trusted Platform Module_. 
 
 But this functionnality comes with high risks:
 
@@ -24,7 +24,7 @@ Before you start playing with some important stuff, you should consider a safe s
 1. Free and open-source software
 2. Xen
 3. Security by compartmentalization
-Dom0: isolate from network
+4. Dom0: isolate from network
 
 ### Cons:
 1. Hardware Compatibility
