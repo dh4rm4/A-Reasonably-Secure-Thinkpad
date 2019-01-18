@@ -9,11 +9,11 @@ How to build a reasonably secure t480s Thinkpad.
 # Considerations
 One major componenent to build a resonably secure laptop, is the use of the _Static Root of Trust for Measurements_ from your _Trusted Platform Module_. 
 
-But if you encrypted disk, this functionnality comes with high risks:
+But this functionnality comes with high risks:
 
-If one hash in your PCRs tables changes, you will never be able to recover your data. (_This could be an easy way to disrupt your hard work_)
+If one hash in your PCRs tables comes to change, you won't be able to recover your data. (_This could be an easy way to disrupt your hard work_)
 
-Before you start playing with some important stuff, you must consider differents solution for your data sotrage:
+Before you start playing with some important stuff, you should consider a safe solution to store your data:
 * version control system
 * backup on personnal physical device
 * cloud storage provider (with dual encryption)
